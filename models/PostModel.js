@@ -3,37 +3,37 @@ const Schema = mongoose.Schema;
 const postSchema = new Schema(
   {
     subject: {
-      type: String
+      type: String,
     },
-    img: { 
-      type:String
-     },  // what you did would be good if we wanted uploading images
+    img: {
+      type: String,
+    }, // what you did would be good if we wanted uploading images
     contact: {
-      type: String
+      type: String,
     },
     text_post: {
       type: String,
-      required:true // the ! was supposed to symbolize required
+      required: true, // the ! was supposed to symbolize required
     },
     comments: [
       {
         name: {
-          type: String
+          type: String,
         },
         feedback: {
-          type: String
-        }
-      }
+          type: String,
+        },
+      },
     ],
-    owner:{
-      type:mongoose.Schema.Types.ObjectId,
-      ref:'organization'
-    }
+    owner: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "organization",
+    },
   },
   {
-    timestamps:true
+    timestamps: true,
   }
 );
-const Post = mongoose.model("Post", postSchema)
+const Post = mongoose.model("Post", postSchema);
 
 module.exports = Post;

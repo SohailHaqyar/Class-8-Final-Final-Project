@@ -18,7 +18,6 @@ router.get(
   }
 );
 
-
 // Get all the posts from the Database check
 router.get("/posts", async (req, res) => {
   try {
@@ -41,7 +40,7 @@ router.post(
       contact,
       text_post,
       comments,
-      owner: req.user._id
+      owner: req.user._id,
     };
     try {
       const Posts = new Post(newPost);
@@ -52,7 +51,6 @@ router.post(
     }
   }
 );
-
 // Get a single post by its id check
 router.get(
   "/posts/:id",
@@ -77,7 +75,7 @@ router.delete(
     try {
       const removedPosts = await Post.findOneAndRemove({
         owner: req.user._id,
-        _id: req.params.id
+        _id: req.params.id,
       });
       !removedPosts && res.send(404).send();
       res.json({ success: true });
@@ -97,7 +95,7 @@ router.put(
       const posts = await Post.findOneAndUpdate(
         {
           owner: req.user._id,
-          _id: req.params.id
+          _id: req.params.id,
         },
         req.body,
         { new: true }
