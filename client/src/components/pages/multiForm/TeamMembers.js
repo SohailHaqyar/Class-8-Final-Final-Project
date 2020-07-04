@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { Button, Row, Col, Label, FormGroup, Input, card } from "reactstrap";
-import { Control, LocalForm } from "react-redux-form";
+import React, {Component} from 'react';
+import {Button, Row, Col, Label, FormGroup, Input} from 'reactstrap';
+import {LocalForm} from 'react-redux-form';
 
 export class FormPersonalDetails extends Component {
   continue = (e) => {
@@ -14,7 +14,7 @@ export class FormPersonalDetails extends Component {
   };
 
   render() {
-    const { values, handleChange } = this.props;
+    const {values, handleChange} = this.props;
     return (
       <div className="container offset-2">
         <div className="col-12">
@@ -23,90 +23,63 @@ export class FormPersonalDetails extends Component {
         <div className="row">
           <div className="col-12 col-md-9 mt-5">
             <LocalForm>
+              <hr />
               <Label for="name">Member 1</Label>
               <Row form>
-                <Col md={6}>
+                <Col md={10}>
                   <FormGroup>
                     <Input
-                      type="firstname"
-                      name="firstnamem1"
-                      id="firstnamem1"
-                      placeholder="First Name"
-                      onChange={handleChange("firstnamem1")}
-                      defaultValue={values.firstnamem1}
+                      type="nameOfMemeber1"
+                      name="nameOfMemeber1"
+                      id="nameOfMemeber"
+                      placeholder="Member's Name"
+                      onChange={handleChange('nameOfMemeber1')}
+                      defaultValue={values.nameOfMemeber1}
                     />
                   </FormGroup>
                 </Col>
-                <Col md={6}>
+                <Col md={10}>
                   <FormGroup>
                     <Input
-                      type="surnames1"
-                      name="surnames1"
-                      id="surname"
-                      placeholder="Surname"
-                      onChange={handleChange("surnames1")}
-                      defaultValue={values.surnames1}
+                      type="avatar1"
+                      name="avatar1"
+                      id="avatar"
+                      placeholder="Member's avatar url"
+                      onChange={handleChange('avatar1')}
+                      defaultValue={values.avatar1}
                     />
                   </FormGroup>
                 </Col>
-              </Row>
-              <Label for="name">Member 2</Label>
-              <Row form>
-                <Col md={6}>
+                <Col md={10}>
                   <FormGroup>
                     <Input
-                      type="firstname"
-                      name="firstnamem2"
-                      id="firstnamem2"
-                      placeholder="First Name"
-                      onChange={handleChange("firstnamem2")}
-                      defaultValue={values.firstnamem2}
+                      type="title1"
+                      name="title1"
+                      id="title"
+                      placeholder="Member's Title"
+                      onChange={handleChange('title1')}
+                      defaultValue={values.title1}
                     />
                   </FormGroup>
                 </Col>
-                <Col md={6}>
+                <Col md={10}>
                   <FormGroup>
                     <Input
-                      type="surname"
-                      name="surnames2"
-                      id="surnames2"
-                      placeholder="Surname"
-                      onChange={handleChange("surnames2")}
-                      defaultValue={values.surnames2}
-                    />
-                  </FormGroup>
-                </Col>
-              </Row>
-              <Label for="name">Member 3</Label>
-              <Row form>
-                <Col md={6}>
-                  <FormGroup>
-                    <Input
-                      type="firstname"
-                      name="firstnamem3"
-                      id="firstnamem3"
-                      placeholder="First Name"
-                      onChange={handleChange("firstnamem3")}
-                      defaultValue={values.firstnamem3}
-                    />
-                  </FormGroup>
-                </Col>
-                <Col md={6}>
-                  <FormGroup>
-                    <Input
-                      type="surname"
-                      name="surnames3"
-                      id="surnames3"
-                      placeholder="Surname"
-                      onChange={handleChange("surnames3")}
-                      defaultValue={values.surnames3}
+                      type="bio1"
+                      name="bio1"
+                      id="bio"
+                      placeholder="Member's biography"
+                      onChange={handleChange('bio1')}
+                      defaultValue={values.bio1}
                     />
                   </FormGroup>
                 </Col>
               </Row>
+              <hr />
+              <hr />
 
               <Row className="form-group">
-                <Col md={{ size: 10 }}>
+                <Col md={{size: 10}}>
                   <Button
                     type="submit"
                     color="primary"

@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { Button, Row, Col, Label } from "reactstrap";
-import { Control, LocalForm, Errors } from "react-redux-form";
+import React, {Component} from 'react';
+import {Button, Row, Col, Label} from 'reactstrap';
+import {Control, LocalForm, Errors} from 'react-redux-form';
 
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !val || val.length <= len;
@@ -16,7 +16,7 @@ export class FormUserDetails extends Component {
   };
 
   render() {
-    const { values, handleChange } = this.props;
+    const {values, handleChange} = this.props;
     return (
       <div className="container offset-2">
         <div className="col-12">
@@ -25,6 +25,36 @@ export class FormUserDetails extends Component {
         <div className="row">
           <div className="col-12 col-md-9 mt-4">
             <LocalForm>
+              <Row className="form-group">
+                <Label htmlFor="logo" md={2}>
+                  Logo URL
+                </Label>
+
+                <Col md={10}>
+                  <Control.text
+                    model=".logo"
+                    id="logo"
+                    name="logo"
+                    placeholder="logo"
+                    onChange={handleChange('logo')}
+                    defaultValue={values.logo}
+                    className="form-control"
+                    validators={{
+                      required,
+                      validEmail,
+                    }}
+                  />
+                  <Errors
+                    className="text-danger"
+                    model=".email"
+                    show="touched"
+                    messages={{
+                      required: 'Required ',
+                      validEmail: 'Invalid logo Url',
+                    }}
+                  />
+                </Col>
+              </Row>
               <Row className="form-group">
                 <Label htmlFor="ngoName" md={2}>
                   Ngo Name
@@ -35,7 +65,7 @@ export class FormUserDetails extends Component {
                     id="ngoName"
                     name="ngoName"
                     placeholder="First Name"
-                    onChange={handleChange("ngoName")}
+                    onChange={handleChange('ngoName')}
                     defaultValue={values.ngoName}
                     className="form-control"
                     validators={{
@@ -49,9 +79,9 @@ export class FormUserDetails extends Component {
                     model=".firstname"
                     show="touched"
                     messages={{
-                      required: "Required ",
-                      minLength: "Must be greater than 2 characters",
-                      maxLength: "Must be 15 characters or less",
+                      required: 'Required ',
+                      minLength: 'Must be greater than 2 characters',
+                      maxLength: 'Must be 15 characters or less',
                     }}
                   />
                 </Col>
@@ -67,7 +97,7 @@ export class FormUserDetails extends Component {
                     id="email"
                     name="email"
                     placeholder="Email"
-                    onChange={handleChange("email")}
+                    onChange={handleChange('email')}
                     defaultValue={values.email}
                     className="form-control"
                     validators={{
@@ -80,8 +110,8 @@ export class FormUserDetails extends Component {
                     model=".email"
                     show="touched"
                     messages={{
-                      required: "Required ",
-                      validEmail: "Invalid Email Address",
+                      required: 'Required ',
+                      validEmail: 'Invalid Email Address',
                     }}
                   />
                 </Col>
@@ -96,7 +126,7 @@ export class FormUserDetails extends Component {
                     id="password"
                     name="password"
                     placeholder="Password"
-                    onChange={handleChange("password")}
+                    onChange={handleChange('password')}
                     defaultValue={values.password}
                     className="form-control"
                     validators={{
@@ -110,44 +140,14 @@ export class FormUserDetails extends Component {
                     model=".password"
                     show="touched"
                     messages={{
-                      required: "Required ",
-                      minLength: "Must be greater than 2 characters",
-                      maxLength: "Must be 15 characters or less",
+                      required: 'Required ',
+                      minLength: 'Must be greater than 2 characters',
+                      maxLength: 'Must be 15 characters or less',
                     }}
                   />
                 </Col>
               </Row>
-              <Row className="form-group">
-                <Label htmlFor="confirmPassword" md={2}>
-                  Confirm Password
-                </Label>
-                <Col md={10}>
-                  <Control.text
-                    model=".confirmPassword"
-                    id="confirmPassword"
-                    name="confirmPassword"
-                    placeholder="Confirm Password"
-                    onChange={handleChange("confirmPassword")}
-                    defaultValue={values.confirmPassword}
-                    className="form-control"
-                    validators={{
-                      required,
-                      minLength: minLength(3),
-                      maxLength: maxLength(15),
-                    }}
-                  />
-                  <Errors
-                    className="text-danger"
-                    model=".password"
-                    show="touched"
-                    messages={{
-                      required: "Required ",
-                      minLength: "Must be greater than 2 characters",
-                      maxLength: "Must be 15 characters or less",
-                    }}
-                  />
-                </Col>
-              </Row>
+
               <Row className="form-group">
                 <Label htmlFor="phoneNumber" md={2}>
                   Phone No.
@@ -158,7 +158,7 @@ export class FormUserDetails extends Component {
                     id="phoneNumber"
                     name="phoneNumber"
                     placeholder="Tel. Number"
-                    onChange={handleChange("phoneNumber")}
+                    onChange={handleChange('phoneNumber')}
                     defaultValue={values.phoneNumber}
                     className="form-control"
                     validators={{
@@ -173,10 +173,10 @@ export class FormUserDetails extends Component {
                     model=".phoneNumber"
                     show="touched"
                     messages={{
-                      required: "Required ",
-                      minLength: "Must be greater than 2 numbers",
-                      maxLength: "Must be 15 numbers or less",
-                      isNumber: "Must be a number",
+                      required: 'Required ',
+                      minLength: 'Must be greater than 2 numbers',
+                      maxLength: 'Must be 15 numbers or less',
+                      isNumber: 'Must be a number',
                     }}
                   />
                 </Col>
@@ -192,13 +192,29 @@ export class FormUserDetails extends Component {
                     name="address"
                     placeholder="Address"
                     className="form-control"
-                    onChange={handleChange("address")}
+                    onChange={handleChange('address')}
                     defaultValue={values.address}
                   />
                 </Col>
               </Row>
               <Row className="form-group">
-                <Col md={{ size: 10, offset: 2 }}>
+                <Label htmlFor="year" md={2}>
+                  Year
+                </Label>
+                <Col md={10}>
+                  <Control.text
+                    model=".year"
+                    id="year"
+                    name="year"
+                    placeholder="year"
+                    className="form-control"
+                    onChange={handleChange('year')}
+                    defaultValue={values.year}
+                  />
+                </Col>
+              </Row>
+              <Row className="form-group">
+                <Col md={{size: 10, offset: 2}}>
                   <Button
                     type="submit"
                     color="primary"

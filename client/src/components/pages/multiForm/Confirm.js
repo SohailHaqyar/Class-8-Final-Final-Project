@@ -1,18 +1,15 @@
-import React, { Component } from "react";
+import React, {Component} from 'react';
 import {
   Button,
   Row,
   Col,
   Label,
-  Input,
-  FormGroup,
-  Form,
   Modal,
   ModalHeader,
   ModalBody,
   ModalFooter,
-} from "reactstrap";
-import { LocalForm } from "react-redux-form";
+} from 'reactstrap';
+import {LocalForm} from 'react-redux-form';
 
 export class Confirm extends Component {
   constructor(props) {
@@ -49,8 +46,9 @@ export class Confirm extends Component {
 
   render() {
     const {
-      values: { ngoName, email, phoneNumber, address, description, services },
+      values: {ngoName, email, phoneNumber, address, description, services},
     } = this.props;
+    console.log(this.state.values);
     return (
       <div className="container offset-2">
         <div className="col-12">
@@ -80,55 +78,55 @@ export class Confirm extends Component {
           <div className="col-12 col-md-9 mt-5">
             <LocalForm>
               <Row className="form-group">
-                <Label htmlFor="ngoName" md={2}>
+                <Label htmlFor="ngoName" md={12}>
                   NGO Name:
                 </Label>
-                <Label htmlFor="ngoName" md={2}>
+                <Label htmlFor="ngoName" md={12}>
                   {ngoName}
                 </Label>
               </Row>
               <Row className="form-group">
-                <Label htmlFor="email" md={2}>
+                <Label htmlFor="email" md={12}>
                   Email:
                 </Label>
-                <Label htmlFor="email" md={2}>
+                <Label htmlFor="email" md={12}>
                   {email}
                 </Label>
               </Row>
               <Row className="form-group">
-                <Label htmlFor="phoneNumber" md={2}>
+                <Label htmlFor="phoneNumber" md={12}>
                   Phone Number:
                 </Label>
-                <Label htmlFor="phoneNumber" md={2}>
+                <Label htmlFor="phoneNumber" md={12}>
                   {phoneNumber}
                 </Label>
               </Row>
               <Row className="form-group">
-                <Label htmlFor="address" md={2}>
+                <Label htmlFor="address" md={12}>
                   Address:
                 </Label>
-                <Label htmlFor="address" md={2}>
+                <Label htmlFor="address" md={12}>
                   {address}
                 </Label>
               </Row>
               <Row className="form-group">
-                <Label htmlFor="description" md={2}>
+                <Label htmlFor="description" md={12}>
                   Description:
                 </Label>
-                <Label htmlFor="description" md={2}>
+                <Label htmlFor="description" md={12}>
                   {description}
                 </Label>
               </Row>
               <Row className="form-group">
-                <Label htmlFor="services" md={2}>
+                <Label htmlFor="services" md={12}>
                   Services:
                 </Label>
-                <Label htmlFor="services" md={2}>
+                <Label htmlFor="services" md={12}>
                   {services}
                 </Label>
               </Row>
               <Row className="form-group">
-                <Col md={{ size: 10, offset: 2 }}>
+                <Col md={{size: 10, offset: 2}}>
                   <Button
                     type="submit"
                     color="primary"
