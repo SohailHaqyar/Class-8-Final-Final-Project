@@ -77,6 +77,112 @@ export class FormPersonalDetails extends Component {
               </Row>
               <hr />
               <hr />
+              <Label for="name">Member 2</Label>
+              <Row form>
+                <Col md={10}>
+                  <FormGroup>
+                    <Input
+                      type="nameOfMemeber2"
+                      name="nameOfMemeber2"
+                      id="nameOfMemeber"
+                      placeholder="Member's Name"
+                      onChange={handleChange('nameOfMemeber2')}
+                      defaultValue={values.nameOfMemeber2}
+                    />
+                  </FormGroup>
+                </Col>
+                <Col md={10}>
+                  <FormGroup>
+                    <Input
+                      type="avatar2"
+                      name="avatar2"
+                      id="avatar"
+                      placeholder="Member's avatar url"
+                      onChange={handleChange('avatar2')}
+                      defaultValue={values.avatar2}
+                    />
+                  </FormGroup>
+                </Col>
+                <Col md={10}>
+                  <FormGroup>
+                    <Input
+                      type="title2"
+                      name="title2"
+                      id="title"
+                      placeholder="Member's Title"
+                      onChange={handleChange('title2')}
+                      defaultValue={values.title2}
+                    />
+                  </FormGroup>
+                </Col>
+                <Col md={10}>
+                  <FormGroup>
+                    <Input
+                      type="bio2"
+                      name="bio2"
+                      id="bio"
+                      placeholder="Member's biography"
+                      onChange={handleChange('bio2')}
+                      defaultValue={values.bio2}
+                    />
+                  </FormGroup>
+                </Col>
+              </Row>
+              <hr />
+              <hr />
+              <Label for="name">Member 3</Label>
+              <Row form>
+                <Col md={10}>
+                  <FormGroup>
+                    <Input
+                      type="nameOfMemeber3"
+                      name="nameOfMemeber3"
+                      id="nameOfMemeber"
+                      placeholder="Member's Name"
+                      onChange={handleChange('nameOfMemeber3')}
+                      defaultValue={values.nameOfMemeber3}
+                    />
+                  </FormGroup>
+                </Col>
+                <Col md={10}>
+                  <FormGroup>
+                    <Input
+                      type="avatar3"
+                      name="avatar3"
+                      id="avatar"
+                      placeholder="Member's avatar url"
+                      onChange={handleChange('avatar3')}
+                      defaultValue={values.avatar3}
+                    />
+                  </FormGroup>
+                </Col>
+                <Col md={10}>
+                  <FormGroup>
+                    <Input
+                      type="title3"
+                      name="title3"
+                      id="title"
+                      placeholder="Member's Title"
+                      onChange={handleChange('title3')}
+                      defaultValue={values.title3}
+                    />
+                  </FormGroup>
+                </Col>
+                <Col md={10}>
+                  <FormGroup>
+                    <Input
+                      type="bio3"
+                      name="bio3"
+                      id="bio"
+                      placeholder="Member's biography"
+                      onChange={handleChange('bio3')}
+                      defaultValue={values.bio3}
+                    />
+                  </FormGroup>
+                </Col>
+              </Row>
+              <hr />
+              <hr />
 
               <Row className="form-group">
                 <Col md={{size: 10}}>

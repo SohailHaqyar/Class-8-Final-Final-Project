@@ -7,7 +7,7 @@ import Confirm from './Confirm';
 export class NgoForm extends Component {
   state = {
     step: 1,
-    logo:'',
+    logo: '',
     ngoName: '',
     email: '',
     password: '',
@@ -22,6 +22,14 @@ export class NgoForm extends Component {
     avatar1: '',
     title1: '',
     bio1: '',
+    nameOfMemeber2: '',
+    avatar2: '',
+    title2: '',
+    bio2: '',
+    nameOfMemeber3: '',
+    avatar3: '',
+    title3: '',
+    bio3: '',
   };
 
   // Proceed to next step
@@ -48,21 +56,29 @@ export class NgoForm extends Component {
   render() {
     const {step} = this.state;
     const {
-    logo,
-    ngoName,
-    email,
-    password,
-    phoneNumber,
-    address,
-    year,
-    industry,
-    description,
-    services,
-    keywords,
-    nameOfMemeber1,
-    avatar1,
-    title1,
-    bio1,
+      logo,
+      ngoName,
+      email,
+      password,
+      phoneNumber,
+      address,
+      year,
+      industry,
+      description,
+      services,
+      keywords,
+      nameOfMemeber1,
+      avatar1,
+      title1,
+      bio1,
+      nameOfMemeber2,
+      avatar2,
+      title2,
+      bio2,
+      nameOfMemeber3,
+      avatar3,
+      title3,
+      bio3,
     } = this.state;
     const values = {
       logo,
@@ -80,6 +96,14 @@ export class NgoForm extends Component {
       avatar1,
       title1,
       bio1,
+      nameOfMemeber2,
+      avatar2,
+      title2,
+      bio2,
+      nameOfMemeber3,
+      avatar3,
+      title3,
+      bio3,
     };
 
     switch (step) {

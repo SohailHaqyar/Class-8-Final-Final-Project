@@ -115,7 +115,7 @@ class OrganizationDetails extends Component {
         {ngo.teammembers &&
           ngo.teammembers.map((person) => (
             <div className="container">
-              <div className="row" key={person.id}>
+              <div className="row" key={person._id}>
                 <div className="col-lg-4">
                   <img
                     className="bd-placeholder-img rounded-circle"
