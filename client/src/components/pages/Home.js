@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Jumbotron } from "reactstrap";
+import Typed from "react-typed";
 
 class Home extends Component {
   render() {
@@ -9,7 +10,22 @@ class Home extends Component {
           <div className="container">
             <div className="row row-header">
               <div className="col-12 col-sm-6">
-                <h1>Sprint NGO</h1>
+                <Typed
+                  strings={[
+                    "Sprint NGOS",
+                    "Register Your Ngos",
+                    "Advertise your services",
+                  ]}
+                  typeSpeed={10}
+                  backSpeed={20}
+                  attr="placeholder"
+                  loop
+                >
+                  <input
+                    type="text"
+                    style={{ border: "none", fontSize: "48px" }}
+                  />
+                </Typed>
                 <p>
                   Register your NGO here for the best services of advert, there
                   are tons of millions of people visiting this site everyday. So

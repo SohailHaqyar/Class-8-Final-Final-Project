@@ -7,16 +7,11 @@ export class Dashboard extends Component {
       <div className="Dashboard">
         <div className="Dashboard__card">
           <div className="Dashboard__card-mini">
-            <img
-              src="https://files.slack.com/files-pri/T6RAP57AP-F016Q0QTY68/mylogo.png"
-              alt="logo"
-              className="Dashboard__logo"
-            />
-            <h1
-              style={{ marginLeft: "4.5em", color: "white", marginTop: "20px" }}
+            <h2
+              style={{ color: "white", marginTop: "20px", marginLeft: "10px" }}
             >
               Future Tech
-            </h1>
+            </h2>
 
             <div className="Dashboard__card-mini-cta">
               <Button color="info" style={{ marginLeft: "10px" }}>
@@ -28,7 +23,6 @@ export class Dashboard extends Component {
             </div>
           </div>
         </div>
-
         <h1 style={{ marginTop: "200px" }}>Posts will go here</h1>
       </div>
     );
