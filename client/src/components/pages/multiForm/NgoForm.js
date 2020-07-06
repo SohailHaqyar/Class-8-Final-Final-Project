@@ -1,34 +1,40 @@
-import React, { Component } from "react";
-import NgoInfo from "./NgoInfo";
-import NgoDetails from "./NgoDetails";
-import TeamMembers from "./TeamMembers";
-import Confirm from "./Confirm";
+import React, {Component} from 'react';
+import NgoInfo from './NgoInfo';
+import NgoDetails from './NgoDetails';
+import TeamMembers from './TeamMembers';
+import Confirm from './Confirm';
 
 export class NgoForm extends Component {
   state = {
     step: 1,
-    ngoName: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-    phoneNumber: "",
-    address: "",
-    image: "",
-    industry: "",
-    description: "",
-    services: "",
-    keywords: "",
-    firstnamem1: "",
-    surnames1: "",
-    firstnamem2: "",
-    surnames2: "",
-    firstnamem3: "",
-    surnames3: "",
+    logo: '',
+    ngoName: '',
+    email: '',
+    password: '',
+    phoneNumber: '',
+    address: '',
+    year: '',
+    industry: '',
+    description: '',
+    services: '',
+    keywords: '',
+    nameOfMemeber1: '',
+    avatar1: '',
+    title1: '',
+    bio1: '',
+    nameOfMemeber2: '',
+    avatar2: '',
+    title2: '',
+    bio2: '',
+    nameOfMemeber3: '',
+    avatar3: '',
+    title3: '',
+    bio3: '',
   };
 
   // Proceed to next step
   nextStep = () => {
-    const { step } = this.state;
+    const {step} = this.state;
     this.setState({
       step: step + 1,
     });
@@ -36,7 +42,7 @@ export class NgoForm extends Component {
 
   // Go back to prev step
   prevStep = () => {
-    const { step } = this.state;
+    const {step} = this.state;
     this.setState({
       step: step - 1,
     });
@@ -44,48 +50,60 @@ export class NgoForm extends Component {
 
   // Handle fields change
   handleChange = (input) => (e) => {
-    this.setState({ [input]: e.target.value });
+    this.setState({[input]: e.target.value});
   };
 
   render() {
-    const { step } = this.state;
+    const {step} = this.state;
     const {
+      logo,
       ngoName,
       email,
       password,
-      confirmPassword,
       phoneNumber,
       address,
-      image,
+      year,
       industry,
       description,
       services,
       keywords,
-      firstnamem1,
-      surnames1,
-      firstnamem2,
-      surnames2,
-      firstnamem3,
-      surnames3,
+      nameOfMemeber1,
+      avatar1,
+      title1,
+      bio1,
+      nameOfMemeber2,
+      avatar2,
+      title2,
+      bio2,
+      nameOfMemeber3,
+      avatar3,
+      title3,
+      bio3,
     } = this.state;
     const values = {
+      logo,
       ngoName,
       email,
       password,
-      confirmPassword,
       phoneNumber,
       address,
-      image,
+      year,
       industry,
       description,
       services,
       keywords,
-      firstnamem1,
-      surnames1,
-      firstnamem2,
-      surnames2,
-      firstnamem3,
-      surnames3,
+      nameOfMemeber1,
+      avatar1,
+      title1,
+      bio1,
+      nameOfMemeber2,
+      avatar2,
+      title2,
+      bio2,
+      nameOfMemeber3,
+      avatar3,
+      title3,
+      bio3,
     };
 
     switch (step) {

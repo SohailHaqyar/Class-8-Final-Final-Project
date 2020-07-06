@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { Button, Row, Col, Label, FormGroup, Input } from "reactstrap";
-import { Control, LocalForm } from "react-redux-form";
+import React, {Component} from 'react';
+import {Button, Row, Col, Label, FormGroup, Input} from 'reactstrap';
+import {Control, LocalForm} from 'react-redux-form';
 
 export class FormPersonalDetails extends Component {
   continue = (e) => {
@@ -14,7 +14,7 @@ export class FormPersonalDetails extends Component {
   };
 
   render() {
-    const { values, handleChange } = this.props;
+    const {values, handleChange} = this.props;
     return (
       <div className="container offset-2">
         <div className="col-12">
@@ -23,20 +23,6 @@ export class FormPersonalDetails extends Component {
         <div className="row">
           <div className="col-12 col-md-9 mt-4">
             <LocalForm>
-              <FormGroup row>
-                <Label for="image" sm={2}>
-                  Image
-                </Label>
-                <Col sm={10}>
-                  <Input
-                    type="file"
-                    name="image"
-                    id="image"
-                    onChange={handleChange("image")}
-                    defaultValue={values.image}
-                  />
-                </Col>
-              </FormGroup>
               <Row className="form-group">
                 <Label htmlFor="industry" md={2}>
                   Industry
@@ -47,7 +33,7 @@ export class FormPersonalDetails extends Component {
                     id="industry"
                     name="industry"
                     placeholder="Industry"
-                    onChange={handleChange("industry")}
+                    onChange={handleChange('industry')}
                     defaultValue={values.industry}
                     className="form-control"
                   />
@@ -63,7 +49,7 @@ export class FormPersonalDetails extends Component {
                     id="description"
                     name="description"
                     placeholder="Description"
-                    onChange={handleChange("description")}
+                    onChange={handleChange('description')}
                     defaultValue={values.description}
                     rows="6"
                     className="form-control"
@@ -80,7 +66,7 @@ export class FormPersonalDetails extends Component {
                     id="services"
                     name="services"
                     placeholder="Services"
-                    onChange={handleChange("services")}
+                    onChange={handleChange('services')}
                     defaultValue={values.services}
                     rows="3"
                     className="form-control"
@@ -97,14 +83,14 @@ export class FormPersonalDetails extends Component {
                     id="keywords"
                     name="keywords"
                     placeholder="Keywords"
-                    onChange={handleChange("keywords")}
+                    onChange={handleChange('keywords')}
                     defaultValue={values.keywords}
                     className="form-control"
                   />
                 </Col>
               </Row>
               <Row className="form-group">
-                <Col md={{ size: 10, offset: 2 }}>
+                <Col md={{size: 10, offset: 2}}>
                   <Button
                     type="submit"
                     color="primary"
