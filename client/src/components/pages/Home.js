@@ -1,15 +1,17 @@
 import React, { Component } from "react";
-import { Jumbotron } from "reactstrap";
+// import { Jumbotron } from "reactstrap";
 import Typed from "react-typed";
+import "./home.scss";
 
 class Home extends Component {
   render() {
     return (
-      <div>
-        <Jumbotron>
+      <div className="bg">
+        <div >
+        {/* <Jumbotron> */}
           <div className="container">
             <div className="row row-header">
-              <div className="col-12 col-sm-6">
+              <div className="col-12 col-sm-6" >
                 <Typed
                   strings={[
                     "Sprint NGOS",
@@ -20,10 +22,14 @@ class Home extends Component {
                   backSpeed={20}
                   attr="placeholder"
                   loop
+                  
+                  
                 >
                   <input
+                    
                     type="text"
-                    style={{ border: "none", fontSize: "48px" }}
+                    style={{ border: "none", fontSize: "48px", backgroundColor:"transparent"}}
+                    
                   />
                 </Typed>
                 <p>
@@ -39,7 +45,8 @@ class Home extends Component {
               </div>
             </div>
           </div>
-        </Jumbotron>
+        {/* </Jumbotron> */}
+        </div>
       </div>
     );
   }
