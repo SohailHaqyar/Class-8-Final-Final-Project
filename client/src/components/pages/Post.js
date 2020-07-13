@@ -3,6 +3,7 @@ import { Button, Form, FormGroup, Label, Input, FormText } from "reactstrap";
 import { Link } from "react-router-dom";
 import "./post.styles.scss";
 import axios from "axios";
+import Card from "../Card";
 
 export class Post extends Component {
   state = {
@@ -51,6 +52,10 @@ export class Post extends Component {
               </Button>
             </Form>
           </div>
+        </div>
+        <div className="Post__feed">
+          <Card />
+          <Card />
         </div>
       </div>
     );
