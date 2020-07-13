@@ -14,3 +14,8 @@
 .navbar-dark {
   background-color: #512da8;
 }
+.team_image:hover {
+  transform: scale(1.2);
+  transition: all 1s ease-out;
+  margin-bottom: 40px;
+}

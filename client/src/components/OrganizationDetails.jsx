@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
 import {
   Card,
   Button,
@@ -8,22 +8,22 @@ import {
   CardGroup,
   CardSubtitle,
   CardBody,
-} from 'reactstrap';
+} from "reactstrap";
 //import Organization from '../../../server/models/OrganizationModel';
-import axios from 'axios';
+import axios from "axios";
 class OrganizationDetails extends Component {
   state = {
     ngo: {},
   };
   componentDidMount() {
     axios.get(`http://localhost:4000/ngo/${this.props.id}`).then((res) => {
-      this.setState({ngo: res.data});
+      this.setState({ ngo: res.data });
     });
   }
 
   render() {
     // Fetch the organization's data from the database;
-    const {ngo} = this.state;
+    const { ngo } = this.state;
 
     return (
       <div className="container">
@@ -35,9 +35,9 @@ class OrganizationDetails extends Component {
                   <img
                     className="rounded-circle"
                     style={{
-                      width: '180px',
-                      height: '200px',
-                      borderRadius: '50%',
+                      width: "180px",
+                      height: "200px",
+                      borderRadius: "50%",
                     }}
                     src={ngo.logo}
                     alt=""
@@ -111,25 +111,45 @@ class OrganizationDetails extends Component {
           </div>
         </div>
 
-        <h1>Meet Our Team</h1>
-        {ngo.teammembers &&
-          ngo.teammembers.map((person) => (
-            <div className="container">
-              <div className="row" key={person._id}>
-                <div className="col-lg-4">
+        <h1 style={{ textAlign: "center", paddingBottom: "20px" }}>
+          Meet Our Team
+        </h1>
+        <div className="">
+          <div className="row">
+            {ngo.teammembers &&
+              ngo.teammembers.map((person) => (
+                <div
+                  className="col-lg-4"
+                  key={person._id}
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
                   <img
-                    className="bd-placeholder-img rounded-circle"
-                    width="170"
-                    height="170"
-                    src={person.avatar}
+                    className="bd-placeholder-img rounded-circle team_image"
+                    style={{
+                      marginBottom: "20px",
+                      width: "200px",
+                      height: "200px",
+                      resize: "cover",
+                    }}
+                    src={
+                      person.avatar.lengths > 0
+                        ? person.avatar
+                        : "https://source.unsplash.com/1600x800/?people/" +
+                          person._id
+                    }
                   />
-                  <h2>{person.name}</h2>
-                  <h2>{person.title}</h2>
+                  <h3>{person.name}</h3>
+                  <h5>{person.title}</h5>
                   <p>{person.bio}</p>
                 </div>
-              </div>
-            </div>
-          ))}
+              ))}
+          </div>
+        </div>
       </div>
     );
   }
