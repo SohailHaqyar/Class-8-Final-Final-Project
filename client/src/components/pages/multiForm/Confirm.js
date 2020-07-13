@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
 import {
   Button,
   Row,
@@ -8,9 +8,9 @@ import {
   ModalHeader,
   ModalBody,
   ModalFooter,
-} from 'reactstrap';
-import {LocalForm} from 'react-redux-form';
-import axios from 'axios';
+} from "reactstrap";
+import { LocalForm } from "react-redux-form";
+import axios from "axios";
 
 export class Confirm extends Component {
   constructor(props) {
@@ -28,12 +28,6 @@ export class Confirm extends Component {
       isNavOpen: !this.state.isNavOpen,
     });
   }
-  toggleModal() {
-    this.setState({
-      isModalOpen: !this.state.isModalOpen,
-    });
-  }
-
   continue = (e) => {
     e.preventDefault();
     // PROCESS FORM //
@@ -56,8 +50,8 @@ export class Confirm extends Component {
       year: this.props.values.year,
       industry: this.props.values.industry,
       description: this.props.values.description,
-      services: this.props.values.services.split(','),
-      keyword: this.props.values.keywords.split(','),
+      services: this.props.values.services.split(","),
+      keyword: this.props.values.keywords.split(","),
       teammembers: [
         {
           name: this.props.values.nameOfMemeber1,
@@ -82,17 +76,20 @@ export class Confirm extends Component {
     //console.log('My palyload: ', payload);
 
     axios({
-      url: 'http://localhost:4000/ngo',
-      method: 'POST',
+      url: "http://localhost:4000/ngo",
+      method: "POST",
       data: payload,
     })
-      .then((data) => console.log('data successfully sent'))
-      .catch((data) => console.log('Guy something went wrong'));
+      .then((data) => {
+        console.log("Success");
+        this.props.history.push("/listboard");
+      })
+      .catch((data) => console.log("Guy something went wrong"));
   };
 
   render() {
     const {
-      values: {ngoName, email, phoneNumber, address, description, services},
+      values: { ngoName, email, phoneNumber, address, description, services },
     } = this.props;
 
     return (
@@ -100,26 +97,6 @@ export class Confirm extends Component {
         <div className="col-12">
           <h3>Confirm Registration</h3>
         </div>
-        <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
-          <ModalHeader toggle={this.toggleModal}>CONFIRM MESSAGE</ModalHeader>
-          <ModalBody>
-            <h1>Thanks You For Your Registration</h1>
-            <p>
-              Don't worry we will send you more of your details through your
-              email.
-            </p>
-          </ModalBody>
-          <ModalFooter>
-            <Button
-              type="submit"
-              value="submit"
-              color="primary"
-              onClick={this.toggleModal}
-            >
-              Cancel
-            </Button>
-          </ModalFooter>
-        </Modal>
         <div className="row">
           <div className="col-12 col-md-9 mt-5">
             <LocalForm onSubmit={this.handleSubmit}>
@@ -172,7 +149,7 @@ export class Confirm extends Component {
                 </Label>
               </Row>
               <Row className="form-group">
-                <Col md={{size: 10, offset: 2}}>
+                <Col md={{ size: 10, offset: 2 }}>
                   <Button
                     type="submit"
                     color="primary"
@@ -181,12 +158,7 @@ export class Confirm extends Component {
                   >
                     Back
                   </Button>
-                  <Button
-                    type="submit"
-                    color="primary"
-                    onClick={this.toggleModal}
-                    block
-                  >
+                  <Button type="submit" color="primary" block>
                     Submit
                   </Button>
                 </Col>

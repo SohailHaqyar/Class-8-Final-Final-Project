@@ -9,7 +9,7 @@ export class Listboard extends Component {
     super(props);
 
     this.state = {
-      organizations: []
+      organizations: [],
     };
   }
 
@@ -20,7 +20,7 @@ export class Listboard extends Component {
   UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps) {
       this.setState({
-        organizations: nextProps.ngos.organizations
+        organizations: nextProps.ngos.organizations,
       });
     }
   }
@@ -28,21 +28,12 @@ export class Listboard extends Component {
     const { organizations } = this.state;
     return (
       <div className="">
-        <Breadcrumb>
-          <BreadcrumbItem>
-            <Link to="/home">Home</Link>
-          </BreadcrumbItem>
-          <BreadcrumbItem active>Listboard</BreadcrumbItem>
-        </Breadcrumb>
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <h1 className="display-4 text-center">
+              <h3 className="text-center" style={{ margin: "20px 0" }}>
                 Organizations to Checkout
-              </h1>
-              <p className="lead text-center">
-                Browse and connect with other NGO's
-              </p>
+              </h3>
               {organizations &&
                 organizations.map((ngo, i) => (
                   <OrganizationCard key={i} ngo={ngo} />
@@ -55,9 +46,7 @@ export class Listboard extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  ngos: state.ngo
+const mapStateToProps = (state) => ({
+  ngos: state.ngo,
 });
-export default connect(mapStateToProps, { getAllNgos })(
-  Listboard
-);
+export default connect(mapStateToProps, { getAllNgos })(Listboard);

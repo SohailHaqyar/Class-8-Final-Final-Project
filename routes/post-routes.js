@@ -21,7 +21,9 @@ router.get(
 // Get all the posts from the Database check
 router.get("/posts", async (req, res) => {
   try {
-    const allPosts = await Post.find({});
+    const allPosts = await Post.find({})
+      .populate("owner", ["name", "address", "email", "phone", "logo"])
+      .exec();
     res.send(allPosts);
   } catch (e) {
     res.status(500).send();
@@ -33,12 +35,16 @@ router.post(
   "/posts",
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
-    const { subject, img, contact, text_post, comments } = req.body;
+    const { title, body, image, comments } = req.body;
     const newPost = {
-      subject,
-      img,
-      contact,
-      text_post,
+      title,
+      body,
+      image,
+      contact: {
+        email: req.user.email,
+        phone: req.user.phone,
+        address: req.user.address,
+      },
       comments,
       owner: req.user._id,
     };

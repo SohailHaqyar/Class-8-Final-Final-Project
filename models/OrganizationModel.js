@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
+const mongoose = require("mongoose");
+const bcrypt = require("bcryptjs");
 
 const OrganizationSchema = new mongoose.Schema({
   logo: {
@@ -33,11 +33,11 @@ const OrganizationSchema = new mongoose.Schema({
     type: String,
   },
   keyword: {
-    type: ['String'],
+    type: ["String"],
     required: true,
   },
   services: {
-    type: ['String'],
+    type: ["String"],
     required: true,
   },
   description: {
@@ -63,18 +63,15 @@ const OrganizationSchema = new mongoose.Schema({
       },
     },
   ],
-  posts: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Post', // Added the post model right here
-  },
+  posts: [{ type: mongoose.Schema.Types.ObjectId, ref: "Post" }],
 });
 
-OrganizationSchema.pre('save', async function (next) {
-  if (this.isModified('password')) {
+OrganizationSchema.pre("save", async function (next) {
+  if (this.isModified("password")) {
     this.password = await bcrypt.hash(this.password, 8);
   }
   next();
 });
 
-const Organization = mongoose.model('organization', OrganizationSchema);
+const Organization = mongoose.model("Organization", OrganizationSchema);
 module.exports = Organization;
