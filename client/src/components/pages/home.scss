@@ -1,10 +1,18 @@
 .bg {
-    background-image: url('../../images/69278206.cms');
+    background-image: linear-gradient(
+            rgba(255, 255, 255, 0.4),
+            rgba(255, 255, 255, 0.4)
+        ),
+        url("../../images/69278206.cms");
     background-size: cover;
     border: 2px solid black;
     height: 1000px;
     width: 100%;
     display: inline-block;
     text-align: center;
-    
-  }
+}
+.self-typed {
+    font-size: 42px;
+    letter-spacing: 2px;
+    color: white;
+}
