@@ -4,6 +4,7 @@ import Typed from "react-typed";
 import "./home.scss";
 
 class Home extends Component {
+  //getting ready
   render() {
     return (
       <div className="bg">
