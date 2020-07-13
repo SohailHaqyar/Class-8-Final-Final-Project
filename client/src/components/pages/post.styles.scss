@@ -1,30 +1,43 @@
-@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+.image_icon {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  padding: 5px;
+}
+.fa-paperclip {
+  font-size: 24px;
+  &:hover {
+    transform: scale(1.5);
+    cursor: pointer;
+    transition: transform 0.5s;
+  }
+}
 .Post {
   display: flex;
-  font-family: "Poppins";
   width: 100vw;
   flex-direction: column;
   height: 100%;
-  background: #9f85ff;
-  color: #fff;
+  background: #e6e6e6;
   justify-content: center;
+  color: black;
   align-items: center;
   &__compose {
-    margin-top: 4em;
+    margin-top: 2em;
     display: flex;
     border-radius: 6px;
     justify-content: center;
     align-items: center;
     width: 70%;
+
     // background-color: blueviolet;
     height: 40%;
     &-box {
       margin-top: 20px;
       padding: 20px;
-      background: #9f85ff !important;
+      background: #e6e6e6 !important;
       width: 95%;
       background: white;
-      box-shadow: 20px 20px 60px #8771d9, -20px -20px 60px #b799ff !important;
+      box-shadow: 20px 20px 60px #c4c4c4, -20px -20px 60px #ffffff;
       border-radius: 10px;
     }
   }
@@ -38,21 +51,25 @@
     &__Card {
       width: 55%;
       margin-top: 40px;
-      box-shadow: 20px 20px 40px #8771d9, -20px -20px 40px #b799ff !important;
+      box-shadow: 20px 20px 60px #c4c4c4, -20px -20px 60px #ffffff;
       border-radius: 3px;
       margin-bottom: 20px;
-      background: #9f85ff !important;
+      background: #e6e6e6 !important;
       &__heading {
         padding: 12px;
         display: flex;
-        margin-bottom: -20px;
         align-items: center;
         & img {
           width: 100px;
+          filter: grayscale(100%);
           height: 100px;
           border-radius: 50%;
           resize: "cover";
           margin-right: 15px;
+          &:hover {
+            filter: grayscale(0);
+            transition: filter 0.8s;
+          }
         }
         & p {
           margin-left: auto;
@@ -65,9 +82,24 @@
         justify-content: center;
         flex-direction: column;
         align-items: center;
+        &__contact {
+          margin-top: 20px;
+          display: flex;
+          padding: 15px 20px;
+          box-shadow: 20px 20px 60px #c4c4c4, -20px -20px 60px #ffffff;
+          width: 100%;
+          justify-content: space-between;
+          transform: scale(1);
+          transition: all 0.5s ease;
+          & span:hover {
+            transform: scale(1.1);
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+          }
+        }
         & img {
           width: 100%;
-          border-radius: 3px;
+          border-radius: 8px;
         }
       }
     }

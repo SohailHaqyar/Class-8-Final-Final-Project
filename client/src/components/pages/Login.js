@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import axios from "axios";
 import {
   Button,
   Row,
@@ -36,29 +35,34 @@ export class Login extends Component {
       this.setState({ error: nextProps.auth.isError });
     }
   }
+  componentDidMount() {
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push("/dashboard");
+    }
+  }
+
   submitLogin(e) {
     e.preventDefault();
     const { usern, pass } = this.state;
     const toSendObject = {
       email: usern,
       password: pass,
-      rememberm: remember_me,
     };
-    this.props.loginUser(toSendObject);
+    this.props.loginUser(toSendObject, this.props.history);
   }
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
   render() {
     return (
-      <div class="container">
-        <div class="row justify-content-center">
+      <div className="container">
+        <div className="row justify-content-center">
           <div className="col-md-8 col-md-offset-3 align-center">
             <br />
             <br />
             <h3>Log in here</h3>
           </div>
-          <div class="col-md-8 col-md-offset-3 align-center">
+          <div className="col-md-8 col-md-offset-3 align-center">
             <Form>
               <FormGroup>
                 <Label for="login_email">Email</Label>

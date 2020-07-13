@@ -1,7 +1,13 @@
 import React, { Component } from "react";
 import { NgoForm } from "./multiForm/NgoForm";
+import { connect } from "react-redux";
 
 export class Register extends Component {
+  componentDidMount() {
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push("/dashboard");
+    }
+  }
   render() {
     return (
       <div>
@@ -10,5 +16,7 @@ export class Register extends Component {
     );
   }
 }
-
-export default Register;
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+export default connect(mapStateToProps, {})(Register);

@@ -5,9 +5,10 @@ import {
   NavbarBrand,
   NavbarToggler,
   Collapse,
-  NavItem
+  NavItem,
 } from "reactstrap";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 class Header extends Component {
   constructor(props) {
@@ -15,67 +16,76 @@ class Header extends Component {
 
     this.toggleNav = this.toggleNav.bind(this);
     this.state = {
-      isNavOpen: false
+      isNavOpen: false,
     };
   }
 
   toggleNav() {
     this.setState({
-      isNavOpen: !this.state.isNavOpen
+      isNavOpen: !this.state.isNavOpen,
     });
+  }
+
+  renderAuth() {
+    if (!this.props.auth.isAuthenticated) {
+      return (
+        <>
+          <NavItem>
+            <NavLink className="nav-link" to="/login">
+              Login
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink className="nav-link" to="/signup">
+              Sign Up
+            </NavLink>
+          </NavItem>
+        </>
+      );
+    } else {
+      return (
+        <>
+          <NavItem>
+            <NavLink className="nav-link" to="/dashboard">
+              {" "}
+              Dashboard
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink className="nav-link" to="/post">
+              {" "}
+              Post Feed
+            </NavLink>
+          </NavItem>
+        </>
+      );
+    }
   }
   render() {
     return (
       <div>
-        <Navbar dark expand="md">
+        <Navbar dark expand="md" className="">
           <div className="container">
-            <NavbarToggler onClick={this.toggleNav} />
-            <NavbarBrand className="mr-auto" href="/">
-              <img
-                src="images/logo.png"
-                height="100"
-                width="100"
-                alt="SprintNGO"
-              />
-            </NavbarBrand>
+            <Link to="/">
+              <NavbarBrand className="mr-auto">
+                <img
+                  src="images/logo.png"
+                  height="100"
+                  width="100"
+                  alt="SprintNGO"
+                />
+              </NavbarBrand>
+            </Link>
+            <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
             <Collapse isOpen={this.state.isNavOpen} navbar>
               <Nav navbar>
-                <NavItem>
-                  <NavLink className="nav-link" to="/">
-                    {" "}
-                    Home
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink className="nav-link" to="/dashboard">
-                    {" "}
-                    Dashboard
-                  </NavLink>
-                </NavItem>
                 <NavItem>
                   <NavLink className="nav-link" to="/listboard">
                     {" "}
                     Listboard
                   </NavLink>
                 </NavItem>
-                <NavItem>
-                  <NavLink className="nav-link" to="/post">
-                    {" "}
-                    Post Feed
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink className="nav-link" to="/login">
-                    {" "}
-                    Login
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink className="nav-link" to="/signup">
-                    {" "}
-                    Sign Up
-                  </NavLink>
-                </NavItem>
+                {this.renderAuth()}
               </Nav>
             </Collapse>
           </div>
@@ -84,5 +94,7 @@ class Header extends Component {
     );
   }
 }
-
-export default Header;
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+export default connect(mapStateToProps, null)(Header);
