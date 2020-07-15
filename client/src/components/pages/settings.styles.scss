@@ -1,0 +1,22 @@
+.Settings {
+  display: flex;
+  width: 100vw;
+  flex-direction: column;
+  align-items: center;
+  background: #e6e6e6;
+  &__tabs {
+    width: 100%;
+    height: 100%;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__tab-1 {
+    display: flex;
+    width: 80%;
+    padding: 20px;
+    height: 100%;
+    flex-direction: column;
+  }
+}

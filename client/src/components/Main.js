@@ -10,6 +10,7 @@ import Footer from "./pages/Footer";
 import { Switch, Route } from "react-router-dom";
 import Private from "./PrivateRoute";
 import OrganizationDetails from "./OrganizationDetails";
+import Settings from "./pages/Settings";
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
 
       <Switch>
         <Private exact path="/post" component={Post} />
+      </Switch>
+      <Switch>
+        <Private exact path="/settings" component={Settings} />
       </Switch>
 
       <Route exact path="/listboard">

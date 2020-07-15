@@ -55,6 +55,10 @@
       border-radius: 3px;
       margin-bottom: 20px;
       background: #e6e6e6 !important;
+      & h4 {
+        font-family: "Grenze Gotisch", cursive;
+        font-weight: bold;
+      }
       &__heading {
         padding: 12px;
         display: flex;
@@ -72,8 +76,9 @@
           }
         }
         & p {
-          margin-left: auto;
-          border-bottom: 1px solid white;
+          font-size: 14px;
+
+          color: rgba(0, 0, 0, 0.753);
         }
       }
       &__body {

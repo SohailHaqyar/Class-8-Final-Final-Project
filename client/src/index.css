@@ -1,8 +1,18 @@
 body {
   margin: 0;
-  font-family: "Nunito";
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas;
 }
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Grenze Gotisch" !important;
+  font-weight: bold;
+};
