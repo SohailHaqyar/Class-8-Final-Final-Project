@@ -2,6 +2,7 @@ import React, { Component } from "react";
 // import { Jumbotron } from "reactstrap";
 import Typed from "react-typed";
 import "./home.scss";
+import { MDBBtn, MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBCol } from 'mdbreact';
 
 class Home extends Component {
   //getting ready
@@ -43,7 +44,43 @@ class Home extends Component {
           </div>
           {/* </Jumbotron> */}
         </div>
+        <MDBCol className="row">
+      <MDBCard style={{ width: "22rem" }}>
+        
+        <MDBCardBody>
+          <MDBCardTitle>BrotherHood</MDBCardTitle>
+          <MDBCardText>
+            Some quick example text to build on the card title and make
+            up the bulk of the card&apos;s content.
+          </MDBCardText>
+          <MDBBtn href="#">Click More</MDBBtn>
+        </MDBCardBody>
+      </MDBCard>
+      <MDBCard style={{ width: "22rem" }}>
+        
+        <MDBCardBody>
+          <MDBCardTitle>Peace</MDBCardTitle>
+          <MDBCardText>
+            Some quick example text to build on the card title and make
+            up the bulk of the card&apos;s content.
+          </MDBCardText>
+          <MDBBtn href="#">Click More</MDBBtn>
+        </MDBCardBody>
+      </MDBCard>
+      <MDBCard style={{ width: "22rem" }}>
+        
+        <MDBCardBody>
+          <MDBCardTitle>Unity</MDBCardTitle>
+          <MDBCardText>
+            Some quick example text to build on the card title and make
+            up the bulk of the card&apos;s content.
+          </MDBCardText>
+          <MDBBtn href="#">Click More</MDBBtn>
+        </MDBCardBody>
+      </MDBCard>
+    </MDBCol>
       </div>
+      
     );
   }
 }
