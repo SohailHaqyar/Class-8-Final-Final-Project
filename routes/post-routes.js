@@ -4,7 +4,6 @@ const Post = require("../models/PostModel");
 const passport = require("passport");
 
 // Get all the posts made by a specific user check
-
 router.get(
   "/posts/me",
   passport.authenticate("jwt", { session: false }),
@@ -40,11 +39,6 @@ router.post(
       title,
       body,
       image,
-      contact: {
-        email: req.user.email,
-        phone: req.user.phone,
-        address: req.user.address,
-      },
       comments,
       owner: req.user._id,
     };
@@ -57,6 +51,8 @@ router.post(
     }
   }
 );
+
+// Adda new Team member
 // Get a single post by its id check
 router.get(
   "/posts/:id",
