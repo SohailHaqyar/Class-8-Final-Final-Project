@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import Typed from "react-typed";
 import "./home.scss";
 import { MDBBtn, MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBCol } from 'mdbreact';
-
+//test
 class Home extends Component {
   //getting ready
   render() {
