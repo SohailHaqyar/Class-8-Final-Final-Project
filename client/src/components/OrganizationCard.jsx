@@ -14,7 +14,11 @@ class OrganizationCard extends Component {
               <img
                 className=""
                 src={logo}
-                style={{ width: "250px", height: "100%" }}
+                style={{
+                  maxWidth: "100%",
+                  height: "auto",
+                  borderRadius: "8px",
+                }}
                 alt=""
               />
             </Col>

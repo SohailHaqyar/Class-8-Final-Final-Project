@@ -10,7 +10,7 @@ export class Register extends Component {
   }
   render() {
     return (
-      <div>
+      <div style={{ marginTop: "20px" }}>
         <NgoForm />
       </div>
     );

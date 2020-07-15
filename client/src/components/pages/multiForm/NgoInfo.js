@@ -129,6 +129,7 @@ export class FormUserDetails extends Component {
                     onChange={handleChange('password')}
                     defaultValue={values.password}
                     className="form-control"
+                    type="password"
                     validators={{
                       required,
                       minLength: minLength(3),

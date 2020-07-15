@@ -44,22 +44,23 @@ const OrganizationSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-
   teammembers: [
     {
       name: {
         type: String,
-        required: true,
+        requried: true,
       },
       bio: {
         type: String,
+        requried: true,
       },
       avatar: {
         type: String,
+        requried: true,
       },
       title: {
         type: String,
-        required: true,
+        requried: true,
       },
     },
   ],

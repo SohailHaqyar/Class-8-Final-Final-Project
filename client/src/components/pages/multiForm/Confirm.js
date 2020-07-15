@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import {
   Button,
   Row,
@@ -21,7 +22,6 @@ export class Confirm extends Component {
       isModalOpen: false,
     };
     this.toggleNav = this.toggleNav.bind(this);
-    this.toggleModal = this.toggleModal.bind(this);
   }
   toggleNav() {
     this.setState({
@@ -52,26 +52,6 @@ export class Confirm extends Component {
       description: this.props.values.description,
       services: this.props.values.services.split(","),
       keyword: this.props.values.keywords.split(","),
-      teammembers: [
-        {
-          name: this.props.values.nameOfMemeber1,
-          avatar: this.props.values.avatar1,
-          title: this.props.values.title1,
-          bio: this.props.values.bio1,
-        },
-        {
-          name: this.props.values.nameOfMemeber2,
-          avatar: this.props.values.avatar2,
-          title: this.props.values.title2,
-          bio: this.props.values.bio2,
-        },
-        {
-          name: this.props.values.nameOfMemeber3,
-          avatar: this.props.values.avatar3,
-          title: this.props.values.title3,
-          bio: this.props.values.bio3,
-        },
-      ],
     };
     //console.log('My palyload: ', payload);
 
@@ -82,12 +62,13 @@ export class Confirm extends Component {
     })
       .then((data) => {
         console.log("Success");
-        this.props.history.push("/listboard");
+        this.props.history.push("/login");
       })
       .catch((data) => console.log("Guy something went wrong"));
   };
 
   render() {
+    console.log(this.props);
     const {
       values: { ngoName, email, phoneNumber, address, description, services },
     } = this.props;
@@ -171,4 +152,4 @@ export class Confirm extends Component {
   }
 }
 
-export default Confirm;
+export default withRouter(Confirm);

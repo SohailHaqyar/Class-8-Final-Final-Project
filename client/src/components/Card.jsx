@@ -1,13 +1,12 @@
 import React from "react";
 import moment from "moment";
-const Card = ({ post, noContact, owner }) => {
+const Card = ({ post, noContact, owner, ownerLogo }) => {
   return (
     <div className="Post__feed__Card">
       <div className="Post__feed__Card__heading">
         <img
-          src={post.owner.logo}
+          src={post.owner.logo || ownerLogo}
           // : "https://dummyimage.com/800x400/fff/fff"
-          alt={post.title}
         />
         <div className="">
           <h4>{post.owner.name || owner}</h4>

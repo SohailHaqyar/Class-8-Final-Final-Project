@@ -60,6 +60,20 @@ export class Dashboard extends Component {
                     </ListGroupItem>
                   ))}
                 </ListGroup>
+                <Button
+                  color="danger"
+                  style={{ marginTop: "20px" }}
+                  onClick={() => {
+                    if (
+                      window.confirm("Are you sure you want to logout?") == true
+                    ) {
+                      localStorage.clear();
+                      window.location.href = "/login";
+                    }
+                  }}
+                >
+                  Logout
+                </Button>
               </div>
             </div>
             <div className="Dashboard__profile__body">
@@ -74,7 +88,12 @@ export class Dashboard extends Component {
           <div className="Dashboard__posts">
             <h1>Your Posts</h1>
             {posts.map((post) => (
-              <Card post={post} noContact owner={organization.name} />
+              <Card
+                post={post}
+                noContact
+                owner={organization.name}
+                ownerLogo={organization.logo}
+              />
             ))}
           </div>
         ) : (

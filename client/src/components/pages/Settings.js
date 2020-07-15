@@ -45,6 +45,15 @@ const Example = (props) => {
     description: "",
     logo: "",
   });
+  const [team, setTeam] = useState({
+    name: "",
+    bio: "",
+    avatar: "",
+    title: "",
+  });
+  const handleTeamChange = (e) => {
+    setTeam({ ...team, [e.target.name]: e.target.value });
+  };
   const handleChange = (e) => {
     setState({ ...state, [e.target.name]: e.target.value });
   };
@@ -52,6 +61,12 @@ const Example = (props) => {
     e.preventDefault();
     axios.put("http://localhost:4000/ngo", state).then((res) => {
       fetchNgo();
+    });
+  };
+  const handleTeamSubmit = (e) => {
+    e.preventDefault();
+    axios.post("http://localhost:4000/ngo/team", team).then((res) => {
+      this.props.history.push("/dashboard");
     });
   };
   return (
@@ -215,8 +230,63 @@ const Example = (props) => {
             </Button>
           </Form>
         </TabPane>
-        <TabPane tabId="2">
+        <TabPane tabId="2" className="Settings__tab-1">
           <h2>Add a Teammember</h2>
+          <Form onSubmit={handleTeamSubmit}>
+            <Row form>
+              <Col md={6}>
+                <FormGroup>
+                  <Label for="name">Name</Label>
+                  <Input
+                    type="text"
+                    value={team.name}
+                    onChange={handleTeamChange}
+                    name="name"
+                    id="name"
+                  />
+                </FormGroup>
+              </Col>
+              <Col md={6}>
+                <FormGroup>
+                  <Label for="title">Title</Label>
+                  <Input
+                    type="text"
+                    value={team.title}
+                    onChange={handleTeamChange}
+                    name="title"
+                    id="title"
+                  />
+                </FormGroup>
+              </Col>
+            </Row>
+            <FormGroup>
+              <Label for="avatar">Avatar Url</Label>
+              <Input
+                type="text"
+                value={team.avatar}
+                onChange={handleTeamChange}
+                name="avatar"
+                id="avatar"
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label for="bio">Team member Bio</Label>
+              <Input
+                type="textarea"
+                value={team.bio}
+                onChange={handleTeamChange}
+                name="bio"
+                id="bio"
+              />
+            </FormGroup>
+            <Button
+              type="submit"
+              style={{ width: "100%", margin: "10px 0" }}
+              color="success"
+            >
+              Add Teammember
+            </Button>
+          </Form>
         </TabPane>
       </TabContent>
     </div>
